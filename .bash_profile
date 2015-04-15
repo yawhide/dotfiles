@@ -36,7 +36,9 @@ export EDITOR="macvim -v"
 # adding custom bin functions to path
 export PATH=$PATH:/Users/Joshua/bin
 
-rvm use 2.1.0
+# for ruby 2.1.0 by default
+# export PATH=/Users/Joshua/.rvm/gems/ruby-2.1.0/bin:$PATH
+# rvm use 2.1.0
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 [[ -r ~/.profile ]] && . ~/.profile
