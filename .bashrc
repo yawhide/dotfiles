@@ -7,8 +7,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 rvm use 2.1.0
 
-export EDITOR='vim'
-
 # custom aliases
 alias vim='mvim -v'
 
@@ -20,16 +18,9 @@ hello()
 
 grepr()
 {
-    echo "";
     echo ""; # space things out a bit for scanning
     grep -r "$1" $2 --color -n;
     echo "";
-    echo "";
-    i=0
-    for arg in "$@"; do
-        echo "arg$i=$arg"
-        let ++i
-    done
 }
 
 google()
