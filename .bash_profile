@@ -34,7 +34,7 @@ export PATH=$PATH:$GOPATH/bin
 export EDITOR="macvim -v"
 
 # adding custom bin functions to path
-export PATH=$PATH:/Users/Joshua/bin
+# export PATH=$PATH:/Users/Joshua/bin
 
 # for ruby 2.1.0 by default
 # export PATH=/Users/Joshua/.rvm/gems/ruby-2.1.0/bin:$PATH
