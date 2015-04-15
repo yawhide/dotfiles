@@ -1,13 +1,16 @@
-export PS1="\d \A \W\$ " # custom prompt
+# this file is executed for interactive non-login shells
+# (when you open a new window/session)
+
+export CLICOLOR=1
+
+# custom prompt
+export PS1="\d \A \W\$ " 
 # canonical -> "\h:\W \u\$ "
 
-source ~/.git-completion.bash
+# load defined aliases
+[[ -r ~/.bash_aliases ]] && . ~/.bash_aliases
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-rvm use 2.1.0
-
-# CUSTOM FUNCTIONS
+# custom functions (consider writing them to bin/)
 hello()
 {
     echo "Hello $1, let us be a friend." ;
