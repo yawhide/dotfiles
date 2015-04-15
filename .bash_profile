@@ -31,14 +31,14 @@ export GOPATH=$HOME/projects/golang
 export PATH=$PATH:$GOPATH/bin
 
 # set macvim as editor
-export EDITOR="macvim -v"
+export EDITOR="mvim -v"
 
 # adding custom bin functions to path
 # export PATH=$PATH:/Users/Joshua/bin
 
-# for ruby 2.1.0 by default
+# for ruby 2.1.0 by default, for osx
 # export PATH=/Users/Joshua/.rvm/gems/ruby-2.1.0/bin:$PATH
-# rvm use 2.1.0
+rvm use 2.1.0
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 [[ -r ~/.profile ]] && . ~/.profile
