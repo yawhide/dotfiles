@@ -7,9 +7,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 rvm use 2.1.0
 
-# custom aliases
-alias vim='mvim -v'
-
 # CUSTOM FUNCTIONS
 hello()
 {

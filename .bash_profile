@@ -13,7 +13,15 @@ PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# golang-style path
 export GOPATH=$HOME/projects/golang
 export PATH=$PATH:$GOPATH/bin
+
+# set vim as editor
 export EDITOR="vim"
+
+# adding custom bin functions to path
+export PATH=$PATH:/Users/Joshua/bin
+
 [[ -r ~/.bashrc ]] && . ~/.bashrc
