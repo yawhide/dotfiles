@@ -39,3 +39,4 @@ export PATH=$PATH:/Users/Joshua/bin
 rvm use 2.1.0
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
+[[ -r ~/.profile ]] && . ~/.profile
