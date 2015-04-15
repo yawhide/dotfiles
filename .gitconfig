@@ -27,7 +27,6 @@
     fc = log --all --grep
     prose = log --pretty=format:%s
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-    delete-merged = branch -d `git branch --merged | grep -v '^*' | grep -v 'master' | tr -d '\n'`
 [init]
 	templatedir = /Users/Joshua/.git-templates
 [github]
