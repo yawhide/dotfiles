@@ -1,0 +1,36 @@
+[user]
+	name = andjosh
+	email = email@andjosh.com
+[core]
+	editor = vim
+[credential]
+	helper = cache
+[alias]
+    co = checkout
+    st = status
+    s = status -sb
+    ci = commit -am
+    rev = merge --no-ff --no-commit
+    br = branch
+    brs = show-branch --no-name
+    ls = ls-files
+    add = add -v
+    get = fetch --all
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lsv = log --pretty=format:'%C(yellow)%h %C(cyan)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
+    lu = for-each-ref --sort=-committerdate --format='%(committerdate:relative)%09%(refname:short)' refs/heads
+    tree = log --all --graph --decorate --oneline
+    up = push origin 
+    pu = pull origin 
+    ada = add -A
+    web = instaweb
+    fc = log --all --grep
+    prose = log --pretty=format:%s
+    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+    delete-merged = branch -d `git branch --merged | grep -v '^*' | grep -v 'master' | tr -d '\n'`
+[init]
+	templatedir = /Users/Joshua/.git-templates
+[github]
+	user = andjosh
+[ghi]
+	token = !security find-internet-password -a andjosh -s github.com -l 'ghi token' -w
