@@ -1,0 +1,12 @@
+csv.vim
+syntastic
+vim-airline
+vim-coffee-script
+vim-fugitive
+vim-gitgutter
+vim-go
+vim-jade
+vim-jsdoc
+vim-json
+vim-markdown
+vim-phpdoc
