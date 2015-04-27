@@ -47,6 +47,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 " :JsDoc
 let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_allow_shorthand = 1
 nmap <C-l> :call jsdoc#insert()<CR>
 
 " phpDoc
