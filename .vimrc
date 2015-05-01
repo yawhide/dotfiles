@@ -18,6 +18,8 @@ set hlsearch
 " for ailine
 set laststatus=2
 set noshowmode
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#whitespace#trailing_format='t[%s]'
 
 au BufRead,BufNewFile *.go set filetype=go 
 
