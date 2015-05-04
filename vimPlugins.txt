@@ -8,5 +8,6 @@ vim-go
 vim-jade
 vim-jsdoc
 vim-json
+vim-jsx
 vim-markdown
 vim-phpdoc

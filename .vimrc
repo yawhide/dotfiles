@@ -41,7 +41,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ["php"]
 let g:syntastic_css_checkers = ["csslint"]
-let g:syntastic_javascript_checkers = ["jshint", "jscs"]
+let g:syntastic_javascript_checkers = ["jshint", "jscs", "jsxhint"]
 let g:syntastic_aggregate_errors = 1
 
 " autocompletion
