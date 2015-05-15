@@ -10,6 +10,8 @@
     st = status
     s = status -sb
     ci = commit -am
+    ca = commit --amend
+    cac = commit --amend -c
     rev = merge --no-ff --no-commit
     br = branch
     brs = show-branch --no-name
@@ -28,6 +30,7 @@
     fc = log --all --grep
     prose = log --pretty=format:%s
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+    ali = config --get-regexp alias
 [init]
 	templatedir = /Users/Joshua/.git-templates
 [github]
