@@ -164,20 +164,17 @@ fi
 
 # Now we construct the prompt.
 PROMPT_COMMAND="history -a"
-DC=$(disk_color)
-LC=$(load_color)
-JC=$(job_color)
 case ${TERM} in
 *term* | rxvt | putty | screen*)
         PS1="\[\$(load_color)\][\t\[${NC}\] "
 # Time of day (with load info):
-    PS1="\[${LC}\]\t\[${NC}\] "
+    PS1="\[$(load_color)\]\t\[${NC}\] "
 # User@Host (with connection type info):
     PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
 # PWD (with 'disk space' info):
-    PS1=${PS1}"\[${DC}\]\w\[${NC}\] "
+    PS1=${PS1}"\[$(disk_color)\]\w\[${NC}\] "
 # Prompt (with 'job' info):
-    PS1=${PS1}"\[${JC}\]>\[${NC}\] "
+    PS1=${PS1}"\[$(job_color)\]>\[${NC}\] "
 esac
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
