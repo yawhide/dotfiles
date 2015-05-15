@@ -33,12 +33,152 @@ export PATH=$PATH:$GOPATH/bin
 # set macvim as editor
 export EDITOR="mvim -v"
 
+# let other programs know that we are using bash
+export SHELL=/bin/bash
+
 # adding custom bin functions to path
 # export PATH=$PATH:/Users/Joshua/bin
 
 # for ruby 2.1.0 by default, for osx
 # export PATH=/Users/Joshua/.rvm/gems/ruby-2.1.0/bin:$PATH
 rvm use 2.1.0
+
+# Color definitions (taken from Color Bash Prompt HowTo).
+# Some colors might look different of some terminals.
+# For example, I see 'Bold Red' as 'orange' on my screen,
+# hence the 'Green' 'BRed' 'Red' sequence I often use in my prompt.
+# Normal Colors
+Black='\e[0;30m'        # Black
+Red='\e[0;31m'          # Red
+Green='\e[0;32m'        # Green
+Yellow='\e[0;33m'       # Yellow
+Blue='\e[0;34m'         # Blue
+Purple='\e[0;35m'       # Purple
+Cyan='\e[0;36m'         # Cyan
+White='\e[0;37m'        # White
+# Bold
+BBlack='\e[1;30m'       # Black
+BRed='\e[1;31m'         # Red
+BGreen='\e[1;32m'       # Green
+BYellow='\e[1;33m'      # Yellow
+BBlue='\e[1;34m'        # Blue
+BPurple='\e[1;35m'      # Purple
+BCyan='\e[1;36m'        # Cyan
+BWhite='\e[1;37m'       # White
+# Background
+On_Black='\e[40m'       # Black
+On_Red='\e[41m'         # Red
+On_Green='\e[42m'       # Green
+On_Yellow='\e[43m'      # Yellow
+On_Blue='\e[44m'        # Blue
+On_Purple='\e[45m'      # Purple
+On_Cyan='\e[46m'        # Cyan
+On_White='\e[47m'       # White
+NC="\e[m"               # Color Reset
+ALERT=${BWhite}${On_Red} # Bold White on red background
+echo -n "Date : "
+date
+# brew install fortune, for fun :)
+# fortune
+echo "----------------------------------------------"
+
+# Test connection type:
+if [ -n "${SSH_CONNECTION}" ]; then
+    CNX=${Green}        # Connected on remote machine, via ssh (good).
+else
+    CNX=${BCyan}        # Connected on local machine.
+fi
+# Test user type:
+if [[ ${USER} == "root" ]]; then
+    SU=${Red}           # User is root.
+elif [[ ${USER} != $(logname) ]]; then
+    SU=${BRed}          # User is not login user.
+else
+    SU=${BCyan}         # User is normal (well ... most of us are).
+fi
+NCPU=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
+# Number of CPUs
+SLOAD=$(( 100*${NCPU} ))        # Small load
+MLOAD=$(( 200*${NCPU} ))        # Medium load
+XLOAD=$(( 400*${NCPU} ))        # Xlarge load
+
+# Returns system load as percentage, i.e., '40' rather than '0.40)'.
+function load()
+{
+local SYSLOAD=$(uptime | awk -F'[a-z]:' '{ print $2}' | awk '{split($0,a," "); print a[2]}')
+# System load of the current host.
+#echo $((100*$SYSLOAD))       # Convert to decimal.
+echo "$(echo "scale=2; 100*$SYSLOAD" | bc | awk '{split($0,a,".");   print a[1]}')"
+}
+function load_perc()
+{
+local SYSLOAD=$(load)
+echo "$(echo "scale=2; $SYSLOAD/$NCPU" | bc | awk '{split($0,a,".");   print a[1  ]}')"
+}
+
+# Returns a color indicating system load.
+function load_color()
+{
+local SYSLOAD=$(load)
+if [ ${SYSLOAD} -gt ${XLOAD} ]; then
+echo -en ${ALERT}
+elif [ ${SYSLOAD} -gt ${MLOAD} ]; then
+echo -en ${Red}
+elif [ ${SYSLOAD} -gt ${SLOAD} ]; then
+echo -en ${BRed}
+else
+echo -en ${BGreen}
+fi
+}
+# Returns a color according to free disk space in $PWD.
+function disk_color()
+{
+if [ ! -w "${PWD}" ] ; then
+echo ${Red}
+# No 'write' privilege in the current directory.
+elif [ -s "${PWD}" ] ; then
+local used=$(command df -P "$PWD" |
+                   awk 'END {print $5}' | awk 'sub(/%/,"")')
+if [ ${used} -gt 95 ]; then
+echo ${ALERT}           # Disk almost full (>95%).
+elif [ ${used} -gt 90 ]; then
+echo ${BRed}            # Free disk space almost gone.
+else
+echo ${Green}           # Free disk space is ok.
+fi
+else
+echo ${Cyan}
+# Current directory is size '0' (like /proc, /sys etc).
+fi
+}
+
+# Returns a color according to running/suspended jobs.
+function job_color()
+{
+if [ $(jobs -s | wc -l) -gt "0" ]; then
+echo ${BRed}
+elif [ $(jobs -r | wc -l) -gt "0" ] ; then
+echo ${BCyan}
+fi
+}
+
+# Now we construct the prompt.
+PROMPT_COMMAND="history -a"
+DC=$(disk_color)
+LC=$(load_color)
+JC=$(job_color)
+case ${TERM} in
+*term* | rxvt | putty | screen*)
+        PS1="\[\$(load_color)\][\t\[${NC}\] "
+# Time of day (with load info):
+    PS1="\[${LC}\]\t\[${NC}\] "
+# User@Host (with connection type info):
+    PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
+# PWD (with 'disk space' info):
+    PS1=${PS1}"\[${DC}\]\w\[${NC}\] "
+# Prompt (with 'job' info):
+    PS1=${PS1}"\[${JC}\]>\[${NC}\] "
+esac
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 [[ -r ~/.profile ]] && . ~/.profile

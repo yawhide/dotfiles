@@ -4,8 +4,8 @@
 export CLICOLOR=1
 
 # custom prompt
-export PS1="\d \A \W\$ " 
-# canonical -> "\h:\W \u\$ "
+# export PS1="\d \A \W\$ " 
+#       canonical -> "\h:\W \u\$ "
 
 # load defined aliases
 [[ -r ~/.bash_aliases ]] && . ~/.bash_aliases
