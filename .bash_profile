@@ -80,22 +80,7 @@ echo -n "Date : "
 date
 # brew install fortune, for fun :)
 # fortune
-echo "----------------------------------------------"
 
-# Test connection type:
-if [ -n "${SSH_CONNECTION}" ]; then
-    CNX=${Green}        # Connected on remote machine, via ssh (good).
-else
-    CNX=${BCyan}        # Connected on local machine.
-fi
-# Test user type:
-if [[ ${USER} == "root" ]]; then
-    SU=${Red}           # User is root.
-elif [[ ${USER} != $(logname) ]]; then
-    SU=${BRed}          # User is not login user.
-else
-    SU=${BCyan}         # User is normal (well ... most of us are).
-fi
 NCPU=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
 # Number of CPUs
 SLOAD=$(( 100*${NCPU} ))        # Small load
@@ -115,67 +100,6 @@ function load_perc()
 local SYSLOAD=$(load)
 echo "$(echo "scale=2; $SYSLOAD/$NCPU" | bc | awk '{split($0,a,".");   print a[1  ]}')"
 }
-
-# Returns a color indicating system load.
-function load_color()
-{
-local SYSLOAD=$(load)
-if [ ${SYSLOAD} -gt ${XLOAD} ]; then
-echo -en ${ALERT}
-elif [ ${SYSLOAD} -gt ${MLOAD} ]; then
-echo -en ${Red}
-elif [ ${SYSLOAD} -gt ${SLOAD} ]; then
-echo -en ${BRed}
-else
-echo -en ${BGreen}
-fi
-}
-# Returns a color according to free disk space in $PWD.
-function disk_color()
-{
-if [ ! -w "${PWD}" ] ; then
-echo ${Red}
-# No 'write' privilege in the current directory.
-elif [ -s "${PWD}" ] ; then
-local used=$(command df -P "$PWD" |
-                   awk 'END {print $5}' | awk 'sub(/%/,"")')
-if [ ${used} -gt 95 ]; then
-echo ${ALERT}           # Disk almost full (>95%).
-elif [ ${used} -gt 90 ]; then
-echo ${BRed}            # Free disk space almost gone.
-else
-echo ${Green}           # Free disk space is ok.
-fi
-else
-echo ${Cyan}
-# Current directory is size '0' (like /proc, /sys etc).
-fi
-}
-
-# Returns a color according to running/suspended jobs.
-function job_color()
-{
-if [ $(jobs -s | wc -l) -gt "0" ]; then
-echo ${BRed}
-elif [ $(jobs -r | wc -l) -gt "0" ] ; then
-echo ${BCyan}
-fi
-}
-
-# Now we construct the prompt.
-PROMPT_COMMAND="history -a"
-case ${TERM} in
-*term* | rxvt | putty | screen*)
-        PS1="\[\$(load_color)\][\t\[${NC}\] "
-# Time of day (with load info):
-    PS1="\[$(load_color)\]\A\[${NC}\] "
-# User@Host (with connection type info):
-    PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
-# PWD (with 'disk space' info):
-    PS1=${PS1}"\[$(disk_color)\]\W\[${NC}\] "
-# Prompt (with 'job' info):
-    PS1=${PS1}"\[$(job_color)\]>\[${NC}\] "
-esac
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 [[ -r ~/.profile ]] && . ~/.profile
