@@ -4,7 +4,7 @@
 export CLICOLOR=1
 
 # custom prompt
-export PS1="\A \u@\h \W > "
+export PS1="\[\e[1;35m\]\A\[\e[0m\] \u@\h \W $ "
 # export PS1="\d \A \W\$ " 
 #       canonical -> "\h:\W \u\$ "
 
