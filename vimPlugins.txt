@@ -11,3 +11,4 @@ vim-json
 vim-jsx
 vim-markdown
 vim-phpdoc
+vim-phpfmt
