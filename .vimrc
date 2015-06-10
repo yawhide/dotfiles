@@ -58,6 +58,9 @@ inoremap <C-k> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-k> :call PhpDocSingle()<CR> 
 vnoremap <C-k> :call PhpDocRange()<CR> 
 
+" phpfmt
+let g:phpfmt_psr2 = 1
+
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
