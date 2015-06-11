@@ -1,3 +1,4 @@
+auto-pairs
 csv.vim
 syntastic
 vim-airline
