@@ -1,0 +1,3 @@
+#!/bin/sh
+
+curl -s -w %{time_total}\\n -o /dev/null "$@"
