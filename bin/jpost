@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+# A script to create a jekyll post with provided title & current date
+# and open it with current $EDITOR
+
+name = '_posts/'
+name += Time.now.to_s.split(' ')[0]
+for a in ARGV
+    name += '-' + a
+end
+name += '.md'
+
+front_matter = '---\nlayout: post\ntitle: ' + ARGV.join(' ') + '\n---\n'
+
+exec('echo "' + front_matter + '" > ' + name + ' && $EDITOR ' + name)

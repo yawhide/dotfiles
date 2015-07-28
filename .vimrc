@@ -29,7 +29,7 @@ autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd FileType gitcommit setlocal spell
 set complete+=kspell
 " linewrap in prose
-autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+"autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 " :help sytastic
 set statusline+=%#warningmsg#
