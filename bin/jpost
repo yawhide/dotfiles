@@ -16,7 +16,7 @@ else
     name = '_posts/'
 end
 
-name += Time.now.to_s.split(' ')[0]
+name += Time.now.to_s.split(' ')[0] + '-'
 name += ARGV.join('-').downcase.gsub(/[^\w-]/, '')
 name += '.md'
 
