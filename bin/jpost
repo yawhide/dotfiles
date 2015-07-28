@@ -17,9 +17,7 @@ else
 end
 
 name += Time.now.to_s.split(' ')[0]
-for a in ARGV
-    name += '-' + a
-end
+name += ARGV.join('-').downcase.gsub(/[^\w-]/, '')
 name += '.md'
 
 front_matter = '---\nlayout: post\ntitle: ' + ARGV.join(' ') + '\n---\n'
