@@ -39,3 +39,5 @@
 	token = !security find-internet-password -a andjosh -s github.com -l 'ghi token' -w
 [push]
 	default = simple
+[rerere]
+	enabled = true

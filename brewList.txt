@@ -25,6 +25,7 @@ libusb
 libusb-compat
 libvo-aacenc
 lighttpd
+lynx
 macvim
 mongodb
 node

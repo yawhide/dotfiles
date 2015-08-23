@@ -1,0 +1,3 @@
+#!/bin/sh
+
+lynx -listonly -nonumbers -dump $1
