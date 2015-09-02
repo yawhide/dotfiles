@@ -13,3 +13,4 @@ vim-jsx
 vim-markdown
 vim-phpdoc
 vim-phpfmt
+rust.vim
