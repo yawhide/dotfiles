@@ -38,6 +38,7 @@ pth
 readline
 redis
 sbcl
+tree
 w3m
 wget
 x264
