@@ -41,7 +41,7 @@ export SHELL=/bin/bash
 
 # for ruby 2.1.0 by default, for osx
 # export PATH=/Users/Joshua/.rvm/gems/ruby-2.1.0/bin:$PATH
-rvm use 2.1.0
+# rvm use 2.1.0
 
 # Color definitions (taken from Color Bash Prompt HowTo).
 # Some colors might look different of some terminals.

@@ -5,7 +5,7 @@ imap ii <Esc>
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-set background=dark
+" set background=dark
 
 highlight clear SignColumn
 set autowrite
