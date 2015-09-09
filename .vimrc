@@ -14,6 +14,9 @@ set incsearch
 set hlsearch
 " set textwidth=80
 " set colorcolumn=+1
+highlight OverLength ctermbg=lightred guibg=#592929
+autocmd FileType javascript match OverLength /\%81v.\+/
+autocmd FileType php match OverLength /\%121v.\+/
 
 " for ailine
 set laststatus=2
