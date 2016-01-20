@@ -38,6 +38,7 @@ pth
 readline
 redis
 sbcl
+tig
 tree
 w3m
 wget
