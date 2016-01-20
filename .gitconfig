@@ -9,7 +9,8 @@
     co = checkout
     st = status
     s = status -sb
-    ci = commit -am
+    ci = commit -a
+    cm = commit -am
     ca = commit --amend
     cac = commit --amend -c
     rev = merge --no-ff --no-commit
