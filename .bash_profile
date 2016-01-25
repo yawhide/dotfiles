@@ -76,30 +76,19 @@ On_Cyan='\e[46m'        # Cyan
 On_White='\e[47m'       # White
 NC="\e[m"               # Color Reset
 ALERT=${BWhite}${On_Red} # Bold White on red background
+# Simple
+MAGENTA="\033[1;31m"
+ORANGE="\033[1;33m"
+GREEN="\033[1;32m"
+PURPLE="\033[1;35m"
+WHITE="\033[1;37m"
+BOLD=""
+RESET="\033[m"
+
 echo -n "Date : "
 date
 # brew install fortune, for fun :)
 # fortune
-
-NCPU=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
-# Number of CPUs
-SLOAD=$(( 100*${NCPU} ))        # Small load
-MLOAD=$(( 200*${NCPU} ))        # Medium load
-XLOAD=$(( 400*${NCPU} ))        # Xlarge load
-
-# Returns system load as percentage, i.e., '40' rather than '0.40)'.
-function load()
-{
-local SYSLOAD=$(uptime | awk -F'[a-z]:' '{ print $2}' | awk '{split($0,a," "); print a[2]}')
-# System load of the current host.
-#echo $((100*$SYSLOAD))       # Convert to decimal.
-echo "$(echo "scale=2; 100*$SYSLOAD" | bc | awk '{split($0,a,".");   print a[1]}')"
-}
-function load_perc()
-{
-local SYSLOAD=$(load)
-echo "$(echo "scale=2; $SYSLOAD/$NCPU" | bc | awk '{split($0,a,".");   print a[1  ]}')"
-}
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 [[ -r ~/.profile ]] && . ~/.profile

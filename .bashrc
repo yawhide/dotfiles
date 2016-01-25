@@ -4,7 +4,15 @@
 export CLICOLOR=1
 
 # custom prompt
-export PS1="\[\e[1;35m\]\A\[\e[0m\] \u@\h \W $ "
+parse_git_dirty () {
+    [[ $(git status 2> /dev/null | tail -n1 | cut -c 1-17) != "nothing to commit" ]] && echo "*"
+}
+parse_git_branch () {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+}
+
+PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+
 # export PS1="\d \A \W\$ " 
 #       canonical -> "\h:\W \u\$ "
 
