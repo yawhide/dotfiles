@@ -3,6 +3,5 @@
     "esnext": true,
     "validateIndentation": 4,
     "requireMultipleVarDecl": true,
-    "requireTrailingComma": false,
     "disallowMultipleVarDecl": null
 }
