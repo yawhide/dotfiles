@@ -32,6 +32,14 @@ grepr()
     echo "";
 }
 
+frr()
+{
+    echo "finding and replacing";
+    find $1 -type f -exec sed -i "" $2 {} \;
+}
+
+# deprecated, use https://github.com/zquestz/s
+
 google()
 {
     open https://encrypted.google.com/#q=$1+$2+$3+$4+$5+$6+$7+$8+$9;
