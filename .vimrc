@@ -54,12 +54,19 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 " :JsDoc
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_allow_shorthand = 1
+let g:jsdoc_input_description = 1
+let g:jsdoc_access_descriptions = 1
+let g:jsdoc_underscore_private = 1
+let g:jsdoc_enable_es6 = 1
 nmap <C-l> :call jsdoc#insert()<CR>
 
 " phpDoc
 inoremap <C-k> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-k> :call PhpDocSingle()<CR> 
 vnoremap <C-k> :call PhpDocRange()<CR> 
+
+autocmd FileType javascript RainbowParenthesesActivate
+autocmd FileType lisp RainbowParenthesesActivate
 
 " phpfmt
 let g:phpfmt_psr2 = 1
