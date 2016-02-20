@@ -65,8 +65,10 @@ inoremap <C-k> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-k> :call PhpDocSingle()<CR> 
 vnoremap <C-k> :call PhpDocRange()<CR> 
 
-autocmd FileType javascript RainbowParenthesesActivate
-autocmd FileType lisp RainbowParenthesesActivate
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " phpfmt
 let g:phpfmt_psr2 = 1
