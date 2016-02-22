@@ -14,3 +14,4 @@ vim-markdown
 vim-phpdoc
 vim-phpfmt
 rust.vim
+eapache/rainbow_parentheses.vim
