@@ -51,6 +51,11 @@ let g:syntastic_aggregate_errors = 1
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
+" let :tabfind (:tabf) search in pwd, current file directory, recursive
+set path=.,,**
+
+" set foldmethod=syntax
+
 " :JsDoc
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_allow_shorthand = 1
