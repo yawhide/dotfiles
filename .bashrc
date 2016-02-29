@@ -42,12 +42,12 @@ frr()
 
 google()
 {
-    open https://encrypted.google.com/#q=$1+$2+$3+$4+$5+$6+$7+$8+$9;
+    open https://encrypted.google.com/#q=$@;
 }
 
 github()
 {
-    open https://github.com/search?q=$1+$2+$3+$4+$5+$6+$7+$8+$9;
+    open https://github.com/search?q=$@;
 }
 
 myargs()
