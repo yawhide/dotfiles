@@ -31,7 +31,7 @@ export GOPATH=$HOME/projects/golang
 export PATH=$PATH:$GOPATH/bin
 
 # set macvim as editor
-export EDITOR="mvim -v"
+export EDITOR="vim"
 
 # let other programs know that we are using bash
 export SHELL=/bin/bash

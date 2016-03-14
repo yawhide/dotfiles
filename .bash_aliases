@@ -13,6 +13,3 @@ alias l="gls -lAh -F --color"
 
 # Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
-
-# macvim (7.4) please
-alias vim='mvim -v'
