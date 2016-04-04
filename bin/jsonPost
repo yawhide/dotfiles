@@ -1,0 +1,4 @@
+#!/bin/sh
+#
+
+curl $@ -X POST -H "Content-Type:application/json" | python -m json.tool | ccat
