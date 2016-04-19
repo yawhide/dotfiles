@@ -18,11 +18,36 @@ highlight OverLength ctermbg=darkgrey guibg=#592929
 autocmd FileType javascript match OverLength /\%81v.\+/
 autocmd FileType php match OverLength /\%121v.\+/
 
-" for ailine
-set laststatus=2
-set noshowmode
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#whitespace#trailing_format='t[%s]'
+" for custom statusline
+" https://github.com/airblade/dotvim/blob/dd5d7737e39aad5e24c1a4a8c0d115ff2ae7b488/vimrc#L49-L91
+hi clear StatusLine
+hi clear StatusLineNC
+hi StatusLine   term=bold cterm=bold ctermfg=White
+hi StatusLineNC term=bold cterm=bold ctermfg=White
+hi User1                      ctermfg=4          guifg=#40ffff            " Identifier
+hi User2                      ctermfg=2 gui=bold guifg=#ffff60            " Statement
+hi User3 term=bold cterm=bold ctermfg=1          guifg=White   guibg=Red  " Error
+hi User4                      ctermfg=1          guifg=Orange             " Special
+hi User5                      ctermfg=10         guifg=#80a0ff            " Comment
+hi User6 term=bold cterm=bold ctermfg=1          guifg=Red                " WarningMsg
+set laststatus=2                                " always show statusline"
+set statusline=
+set statusline+=%6*%m%r%*                          " modified, readonly
+set statusline+=\ 
+set statusline+=%5*%{expand('%:h')}/               " relative path to file's directory
+set statusline+=%1*%t%*                            " file name
+set statusline+=\ 
+set statusline+=\ 
+set statusline+=%<                                 " truncate here if needed
+set statusline+=%5*%L\ lines%*                     " number of lines
+
+set statusline+=%=                                 " switch to RHS
+
+set statusline+=%5*line:%-4.l%*                         " line
+set statusline+=%5*col:%-3.c%*                          " column
+set statusline+=\ 
+set statusline+=\ 
+set statusline+=%2*buf:%-3n%*                      " buffer number
 
 au BufRead,BufNewFile *.go set filetype=go 
 
@@ -35,9 +60,9 @@ set complete+=kspell
 "autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 " :help sytastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
