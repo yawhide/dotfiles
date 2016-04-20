@@ -34,8 +34,8 @@ set laststatus=2                                " always show statusline"
 set statusline=
 set statusline+=%6*%m%r%*                          " modified, readonly
 set statusline+=\ 
-set statusline+=%5*%{expand('%:h')}/               " relative path to file's directory
-set statusline+=%1*%t%*                            " file name
+set statusline+=%7*%{expand('%:h')}/               " relative path to file's directory
+set statusline+=%5*%t%*                            " file name
 set statusline+=\ 
 set statusline+=\ 
 set statusline+=%<                                 " truncate here if needed
@@ -47,7 +47,7 @@ set statusline+=%5*line:%-4.l%*                         " line
 set statusline+=%5*col:%-3.c%*                          " column
 set statusline+=\ 
 set statusline+=\ 
-set statusline+=%2*buf:%-3n%*                      " buffer number
+set statusline+=%1*buf:%-3n%*                      " buffer number
 
 au BufRead,BufNewFile *.go set filetype=go 
 
