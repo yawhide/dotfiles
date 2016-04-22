@@ -15,6 +15,7 @@
     cac = commit --amend -c
     rev = merge --no-ff --no-commit
     br = branch
+    cb = symbolic-ref --short HEAD      # get current branch name, simply
     brs = show-branch --no-name
     ls = ls-files
     add = add -v
@@ -24,7 +25,7 @@
     lu = for-each-ref --sort=-committerdate --format='%(committerdate:relative)%09%(refname:short)' refs/heads
     tree = log --all --graph --decorate --oneline
     up = push origin 
-    fup = push --set-upstream origin 
+    fup = push --set-upstream origin $(git symbolic-ref --short HEAD)
     pu = pull origin 
     ada = add -A
     web = instaweb
