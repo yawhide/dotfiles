@@ -25,7 +25,7 @@
     lu = for-each-ref --sort=-committerdate --format='%(committerdate:relative)%09%(refname:short)' refs/heads
     tree = log --all --graph --decorate --oneline
     up = push origin 
-    fup = push --set-upstream origin $(git symbolic-ref --short HEAD)
+    fup = push --set-upstream origin HEAD
     pu = pull origin 
     ada = add -A
     web = instaweb
