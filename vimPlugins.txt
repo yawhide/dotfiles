@@ -15,3 +15,5 @@ vim-phpdoc
 vim-phpfmt
 rust.vim
 eapache/rainbow_parentheses.vim
+vim-fireplace
+vim-clojure-static
