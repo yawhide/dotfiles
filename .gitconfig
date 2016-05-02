@@ -16,7 +16,7 @@
     rev = merge --no-ff --no-commit
     br = branch
     cb = symbolic-ref --short HEAD      # get current branch name, simply
-    brs = show-branch --no-name
+    brs = show-branch --sha1-name
     ls = ls-files
     add = add -v
     get = fetch --all
