@@ -19,6 +19,9 @@ highlight OverLength ctermbg=darkgrey guibg=#592929
 autocmd FileType javascript match OverLength /\%81v.\+/
 autocmd FileType php match OverLength /\%121v.\+/
 
+" for tablilne colors
+hi TabLineFill term=bold cterm=bold ctermbg=0
+
 " for custom statusline
 " https://github.com/airblade/dotvim/blob/dd5d7737e39aad5e24c1a4a8c0d115ff2ae7b488/vimrc#L49-L91
 hi clear StatusLine
@@ -51,6 +54,7 @@ set statusline+=\
 set statusline+=%1*buf:%-3n%*                      " buffer number
 
 au BufRead,BufNewFile *.go set filetype=go 
+au BufRead,BufNewFile *.handler set filetype=javascript 
 
 " spellchecking in prose
 autocmd BufRead,BufNewFile *.md setlocal spell
