@@ -25,13 +25,6 @@ hello()
     echo "Hello $1, let us be a friend." ;
 }
 
-grepr()
-{
-    echo ""; # space things out a bit for scanning
-    grep -r "$1" $2 --color -n;
-    echo "";
-}
-
 frr()
 {
     echo "finding and replacing";
