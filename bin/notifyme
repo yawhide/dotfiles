@@ -2,4 +2,8 @@
 #
 # Alert me with a system notification
 #
-/usr/bin/osascript -e "display notification \"${*/\"/\\\"}\" with title \"Computer Says\""
+# Available:
+#       display notification "message" with title "title" subtitle "subtitle" sound name "Pop"
+#       available sounds in /System/Library/Sounds/
+#
+/usr/bin/osascript -e "display notification \"${*/\"/\\\"}\" with title \"Computer Says\" sound name \"Pop\""
