@@ -84,7 +84,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 " let :tabfind (:tabf) search in pwd, current file directory, recursive
 set path=.,,**
 
-" set foldmethod=syntax
+set foldmethod=manual
 
 " :JsDoc
 let g:jsdoc_allow_input_prompt = 1
