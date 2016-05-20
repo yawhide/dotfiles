@@ -19,6 +19,10 @@ highlight OverLength ctermbg=darkgrey guibg=#592929
 autocmd FileType javascript match OverLength /\%81v.\+/
 autocmd FileType php match OverLength /\%121v.\+/
 
+" Use tab and shift-tab to cycle through tabs
+nnoremap <Tab> :tabn<CR>
+nnoremap <S-Tab> :tabp<CR>
+
 " for tablilne colors
 hi TabLineFill term=bold cterm=bold ctermbg=0
 
@@ -84,7 +88,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 " let :tabfind (:tabf) search in pwd, current file directory, recursive
 set path=.,,**
 
-" set foldmethod=syntax
+set foldmethod=manual
 
 " :JsDoc
 let g:jsdoc_allow_input_prompt = 1
