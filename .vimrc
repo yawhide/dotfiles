@@ -1,5 +1,6 @@
 execute pathogen#infect()
 syntax on
+syntax enable
 filetype plugin indent on
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 imap ii <Esc>
@@ -7,6 +8,13 @@ imap ii <Esc>
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
+
+" For Solarized theme within default Terminal.app
+" apply the changes here https://github.com/altercation/vim-colors-solarized/pull/127/files
+colorscheme solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
+set t_Co=16
 
 highlight clear SignColumn
 set autowrite
@@ -88,7 +96,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 " let :tabfind (:tabf) search in pwd, current file directory, recursive
 set path=.,,**
 
-set foldmethod=manual
+" set foldmethod=manual
 
 " :JsDoc
 let g:jsdoc_allow_input_prompt = 1
