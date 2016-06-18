@@ -23,6 +23,10 @@ export PATH
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin" 
 
+# Android development helpers
+export ANDROID_HOME=~/Library/Android/sdk
+PATH="~/Library/Android/sdk/tools:~/Library/Android/sdk/platform-tools:${PATH}"
+
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
