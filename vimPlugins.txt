@@ -3,6 +3,7 @@ csv.vim
 syntastic
 vim-airline
 vim-coffee-script
+vim-easy-align
 vim-fugitive
 vim-gitgutter
 vim-go
