@@ -11,7 +11,7 @@
 \x auto
 
 \set PROMPT1 '%[%033[1m%]%M/%/%R%[%033[0m%]%# '
-\set PROMPT2 ''
+\set PROMPT2 '[more] %R > '
 
 -- Use a separate history file per-database.
 \set HISTFILE ~/.psql_history- :DBNAME
