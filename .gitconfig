@@ -33,6 +33,10 @@
     prose = log --pretty=format:%s
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
     ali = config --get-regexp alias
+    browse = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)
+    browseissues = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/issues
+    browsepulls = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pulls
+    browsemerges = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/merge_requests
 [init]
 	templatedir = /Users/Joshua/.git-templates
 [github]
