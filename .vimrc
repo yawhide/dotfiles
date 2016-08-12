@@ -1,4 +1,5 @@
 execute pathogen#infect()
+
 syntax on
 syntax enable
 filetype plugin indent on
@@ -24,8 +25,12 @@ set hlsearch
 " set textwidth=80
 " set colorcolumn=+1
 highlight OverLength ctermbg=black guibg=#592929
+
+" Language specifics
 autocmd FileType javascript match OverLength /\%81v.\+/
 autocmd FileType php match OverLength /\%121v.\+/
+autocmd FileType ruby match OverLength /\%81v.\+/
+autocmd FileType ruby set tabstop=8 shiftwidth=2
 
 " Use tab and shift-tab to cycle through tabs
 nnoremap <Tab> :tabn<CR>
