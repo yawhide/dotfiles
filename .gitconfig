@@ -35,7 +35,7 @@
     ali = config --get-regexp alias
     browse = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)
     browseissues = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/issues
-    browseppulls = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pulls
+    browsepulls = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pulls
     browsemerges = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/merge_requests
 [init]
 	templatedir = /Users/Joshua/.git-templates

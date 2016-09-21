@@ -31,6 +31,8 @@ autocmd FileType javascript match OverLength /\%81v.\+/
 autocmd FileType ruby match OverLength /\%81v.\+/
 autocmd FileType ruby set tabstop=8 shiftwidth=2
 autocmd FileType php match OverLength /\%121v.\+/
+autocmd FileType ruby match OverLength /\%81v.\+/
+autocmd FileType ruby set tabstop=8 shiftwidth=2
 
 " Use tab and shift-tab to cycle through tabs
 nnoremap <Tab> :tabn<CR>
