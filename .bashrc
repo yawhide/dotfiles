@@ -56,3 +56,8 @@ vcsv()
 {
     sed 's/,,/, ,/g;s/,,/, ,/g' $1 | column -s, -t | less -#2 -N -S
 }
+
+docker-into-machine()
+{
+    eval $(docker-machine env $1)
+}
