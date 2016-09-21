@@ -1,4 +1,5 @@
 execute pathogen#infect()
+
 syntax on
 syntax enable
 filetype plugin indent on
@@ -11,10 +12,10 @@ set background=dark
 
 " For Solarized theme within default Terminal.app
 " apply the changes here https://github.com/altercation/vim-colors-solarized/pull/127/files
-colorscheme solarized
-let g:solarized_termcolors=256
-let g:solarized_termtrans = 1
-set t_Co=16
+" colorscheme solarized
+" let g:solarized_termcolors=256
+" let g:solarized_termtrans = 1
+" set t_Co=16
 
 highlight clear SignColumn
 set autowrite
@@ -24,7 +25,11 @@ set hlsearch
 " set textwidth=80
 " set colorcolumn=+1
 highlight OverLength ctermbg=black guibg=#592929
+
+" Language specifics
 autocmd FileType javascript match OverLength /\%81v.\+/
+autocmd FileType ruby match OverLength /\%81v.\+/
+autocmd FileType ruby set tabstop=8 shiftwidth=2
 autocmd FileType php match OverLength /\%121v.\+/
 
 " Use tab and shift-tab to cycle through tabs
@@ -96,7 +101,8 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 " let :tabfind (:tabf) search in pwd, current file directory, recursive
 set path=.,,**
 
-" set foldmethod=manual
+set foldmethod=manual
+set nofoldenable        " disable folding
 
 " :JsDoc
 let g:jsdoc_allow_input_prompt = 1
