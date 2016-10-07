@@ -4,6 +4,7 @@ syntastic
 vim-airline
 vim-coffee-script
 vim-easy-align
+vim-elixir
 vim-fugitive
 vim-gitgutter
 vim-go
