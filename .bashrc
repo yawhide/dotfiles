@@ -61,3 +61,8 @@ docker-into-machine()
 {
     eval $(docker-machine env $1)
 }
+
+wake-me-in()
+{
+    sleep $1; echo -e '\a'
+}
