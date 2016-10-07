@@ -4,6 +4,7 @@ syntastic
 vim-airline
 vim-coffee-script
 vim-easy-align
+vim-elixir
 vim-fugitive
 vim-gitgutter
 vim-go
@@ -14,6 +15,7 @@ vim-jsx
 vim-markdown
 vim-phpdoc
 vim-phpfmt
+vim-swift
 rust.vim
 eapache/rainbow_parentheses.vim
 vim-fireplace
