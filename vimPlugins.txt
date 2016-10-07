@@ -15,6 +15,7 @@ vim-jsx
 vim-markdown
 vim-phpdoc
 vim-phpfmt
+vim-swift
 rust.vim
 eapache/rainbow_parentheses.vim
 vim-fireplace
