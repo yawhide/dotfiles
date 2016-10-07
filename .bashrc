@@ -66,3 +66,7 @@ wake-me-in()
 {
     sleep $1; echo -e '\a'
 }
+
+generate-readme() {
+    cp ~/.dotfiles/commond-readme.md ./README.md
+}
