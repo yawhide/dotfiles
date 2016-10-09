@@ -57,16 +57,16 @@ vcsv()
     sed 's/,,/, ,/g;s/,,/, ,/g' $1 | column -s, -t | less -#2 -N -S
 }
 
-docker-into-machine()
+docker_into_machine()
 {
     eval $(docker-machine env $1)
 }
 
-wake-me-in()
+wake_me_in()
 {
     sleep $1; echo -e '\a'
 }
 
-generate-readme() {
+generate_readme() {
     cp ~/.dotfiles/commond-readme.md ./README.md
 }
