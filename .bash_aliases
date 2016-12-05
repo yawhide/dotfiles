@@ -13,4 +13,4 @@ alias l="gls -lAh -F --color"
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # Open today's daypages journal
-alias td="e ~/Dropbox/daypages/$(date +%Y-%m-%d).txt"
+alias td="vim ~/Dropbox/daypages/$(date +%Y-%m-%d).txt"
