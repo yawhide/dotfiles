@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# A command to refresh all repos (sub-folders)
+# in the given folder.
+#
+# USAGE
+#  $ ./refresh
+#
+for directory in $(ls -1 -d */); do
+    echo "\n== refreshing: $directory ==\n";
+    cd $directory;
+    if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        git fetch --all;
+    fi
+    cd - > /dev/null 2>&1;
+done
