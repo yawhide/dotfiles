@@ -103,6 +103,14 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 " let :tabfind (:tabf) search in pwd, current file directory, recursive
 set path=.,,**
 
+" Display all matching files when we tab complete
+set wildmenu
+
+" FILE BROWSING:
+" Tweaks for browsing:
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_liststyle=3     " tree view
+
 set foldmethod=manual
 set nofoldenable        " disable folding
 
