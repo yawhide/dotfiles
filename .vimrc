@@ -1,21 +1,15 @@
 execute pathogen#infect()
 
-syntax on
 syntax enable
+syntax on
 filetype plugin indent on
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 imap ii <Esc>
+let mapleader = "\<Space>"
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
-
-" For Solarized theme within default Terminal.app
-" apply the changes here https://github.com/altercation/vim-colors-solarized/pull/127/files
-" colorscheme solarized
-" let g:solarized_termcolors=256
-" let g:solarized_termtrans = 1
-" set t_Co=16
 
 highlight clear SignColumn
 set autowrite
@@ -26,17 +20,14 @@ set hlsearch
 " set colorcolumn=+1
 highlight OverLength ctermbg=black guibg=#592929
 
-" Language specifics
-autocmd FileType javascript match OverLength /\%81v.\+/
-autocmd FileType ruby match OverLength /\%81v.\+/
-autocmd FileType ruby set tabstop=8 shiftwidth=2
-autocmd FileType php match OverLength /\%121v.\+/
-autocmd FileType ruby match OverLength /\%81v.\+/
-autocmd FileType ruby set tabstop=8 shiftwidth=2
-
 " Use tab and shift-tab to cycle through tabs
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
+
+" Special leader-based conveniences
+nnoremap <Leader>o :tabf 
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>ww :wq<CR>
 
 " for tablilne colors
 hi TabLineFill term=bold cterm=bold ctermbg=0
@@ -72,9 +63,6 @@ set statusline+=\
 set statusline+=\ 
 set statusline+=%1*buf:%-3n%*                      " buffer number
 
-au BufRead,BufNewFile *.go set filetype=go 
-au BufRead,BufNewFile *.handler set filetype=javascript 
-
 " spellchecking in prose
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
@@ -98,7 +86,6 @@ let g:syntastic_aggregate_errors = 1
 
 " autocompletion
 set omnifunc=syntaxcomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 " let :tabfind (:tabf) search in pwd, current file directory, recursive
 set path=.,,**
@@ -115,6 +102,17 @@ let g:netrw_liststyle=3     " tree view
 set foldmethod=manual
 set nofoldenable        " disable folding
 
+" Language specifics
+autocmd FileType javascript match OverLength /\%81v.\+/
+autocmd FileType ruby match OverLength /\%81v.\+/
+autocmd FileType ruby set tabstop=8 shiftwidth=2
+autocmd FileType php match OverLength /\%121v.\+/
+autocmd FileType ruby match OverLength /\%81v.\+/
+autocmd FileType ruby set tabstop=8 shiftwidth=2
+
+au BufRead,BufNewFile *.go set filetype=go 
+au BufRead,BufNewFile *.handler set filetype=javascript 
+
 " :JsDoc
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_input_description = 1
@@ -122,19 +120,20 @@ let g:jsdoc_access_descriptions = 1
 let g:jsdoc_underscore_private = 1
 let g:jsdoc_enable_es6 = 1
 nmap <C-l> :call jsdoc#insert()<CR>
+" CompleteJS autocompletion
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 " phpDoc
 inoremap <C-k> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-k> :call PhpDocSingle()<CR> 
 vnoremap <C-k> :call PhpDocRange()<CR> 
+" phpfmt
+let g:phpfmt_psr2 = 1
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-" phpfmt
-let g:phpfmt_psr2 = 1
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
