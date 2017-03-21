@@ -71,7 +71,7 @@ set complete+=kspell
 " linewrap in prose
 "autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
-" :help sytastic
+" :help syntastic
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -83,6 +83,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_css_checkers = ["csslint"]
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_aggregate_errors = 1
+" JSX/React syntax
+let g:jsx_ext_required = 0
 
 " autocompletion
 set omnifunc=syntaxcomplete#Complete
