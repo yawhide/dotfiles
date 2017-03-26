@@ -27,7 +27,7 @@ nnoremap <S-Tab> :tabp<CR>
 " Special leader-based conveniences
 nnoremap <Leader>o :tabf 
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>ww :wq<CR>
+nnoremap <Leader>q :wq<CR>
 
 " for tablilne colors
 hi TabLineFill term=bold cterm=bold ctermbg=0
