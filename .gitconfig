@@ -38,6 +38,7 @@
     browseissues = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/issues
     browsepulls = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pulls
     browsemerges = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/merge_requests
+    browselines = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pipelines
     rearrange = "!git rebase -i $(git merge-base HEAD @{u})"
 [init]
 	templatedir = /Users/Joshua/.git-templates
