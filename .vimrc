@@ -9,7 +9,8 @@ let mapleader = "\<Space>"
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-set background=dark
+" set background=dark
+set background=light
 
 highlight clear SignColumn
 set autowrite
@@ -18,7 +19,7 @@ set incsearch
 set hlsearch
 " set textwidth=80
 " set colorcolumn=+1
-highlight OverLength ctermbg=black guibg=#592929
+highlight OverLength ctermbg=white guibg=#592929
 
 " Use tab and shift-tab to cycle through tabs
 nnoremap <Tab> :tabn<CR>
@@ -69,7 +70,7 @@ autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd FileType gitcommit setlocal spell
 set complete+=kspell
 " linewrap in prose
-"autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+" autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 " :help syntastic
 " set statusline+=%#warningmsg#
@@ -111,6 +112,7 @@ autocmd FileType ruby set tabstop=8 shiftwidth=2
 autocmd FileType php match OverLength /\%121v.\+/
 autocmd FileType ruby match OverLength /\%81v.\+/
 autocmd FileType ruby set tabstop=8 shiftwidth=2
+autocmd FileType css set tabstop=8 shiftwidth=2
 
 au BufRead,BufNewFile *.go set filetype=go 
 au BufRead,BufNewFile *.handler set filetype=javascript 
