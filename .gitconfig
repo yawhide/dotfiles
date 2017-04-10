@@ -52,3 +52,5 @@
 	enabled = true
 [gitlab]
 	url = https://gitlab.com
+[merge]
+	tool = vimdiff
