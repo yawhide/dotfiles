@@ -41,7 +41,7 @@
     browselines = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pipelines
     rearrange = "!git rebase -i $(git merge-base HEAD @{u})"
 [init]
-	templatedir = /Users/Joshua/.git-templates
+	templatedir = ~/.git-templates
 [github]
 	user = andjosh
 [ghi]
@@ -52,3 +52,7 @@
 	enabled = true
 [gitlab]
 	url = https://gitlab.com
+[merge]
+	tool = vimdiff
+[commit]
+        template = ~/.git-templates/.gitmessage
