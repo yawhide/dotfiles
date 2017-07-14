@@ -1,0 +1,9 @@
+
+# 50-character subject line
+# Format: ACTION:[AUDIENCE:] COMMIT_MSG
+#       ACTION is one of
+#               'chg', 'fix', 'new'
+#       AUDIENCE is optional and one of
+#               'dev', 'usr', 'pkg', 'test', 'doc'
+#       COMMIT_MSG is ... well ... the commit message itself.
+# 72-character wrapped longer description.
