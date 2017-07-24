@@ -8,26 +8,40 @@
 
 i=0
 position=0
+async=0
 for arg in "$@"; do
     if [ "$arg" = "-a" ]; then
         position=$i
         let ++position
         let ++position
     fi
+    if [ "$arg" = "--async" ]; then
+        async=$i
+    fi
     let ++i
 done
 
+if [ "$async" -gt "0" ]; then
+    echo "=====> Executing asynchronously"
+fi
 if [ "$position" -gt "0" ]; then
     apps=${@:$position}
     let --position
     commands=${@:0:$position}
     for arg in $apps; do
         echo "=====> heroku ${commands} -a ${arg}"
-        heroku "${@:0:$position}" -a $arg
+        if [ "$async" -gt "0" ]; then
+            heroku "${@:0:$position}" -a $arg &
+        else
+            heroku "${@:0:$position}" -a $arg
+        fi
     done
 fi
 
 if [ "$i" -lt "2" ]; then
-    echo "Usage: heroku_multi <command> -a app [app] [app...]"
+    echo "Usage: heroku_multi <command> -a app [app] [app...] [--async]"
+    echo ""
+    echo "      Passing the --async flag will spawn a background shell"
+    echo "            for each app command, executing asynchronously"
     echo ""
 fi
