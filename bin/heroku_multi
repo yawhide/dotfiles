@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# A command to run a heroku CLI command for multiple apps
+#
+# USAGE
+#  $ heroku_multi config:set FOO=bar -a app-1 two-app three-apps
+#
+
+i=0
+position=0
+for arg in "$@"; do
+    if [ "$arg" = "-a" ]; then
+        position=$i
+        let ++position
+        let ++position
+    fi
+    let ++i
+done
+
+if [ "$position" -gt "0" ]; then
+    apps=${@:$position}
+    let --position
+    commands=${@:0:$position}
+    for arg in $apps; do
+        echo "=====> heroku ${commands} -a ${arg}"
+        heroku "${@:0:$position}" -a $arg
+    done
+fi
+
+if [ "$i" -lt "2" ]; then
+    echo "Usage: heroku_multi <command> -a app [app] [app...]"
+    echo ""
+fi
