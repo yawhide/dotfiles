@@ -29,6 +29,9 @@ if [ "$position" -gt "0" ]; then
     let --position
     commands=${@:0:$position}
     for arg in $apps; do
+        if [ "$arg" = "--async" ]; then
+            continue
+        fi
         echo "=====> heroku ${commands} -a ${arg}"
         if [ "$async" -gt "0" ]; then
             heroku "${@:0:$position}" -a $arg &
