@@ -12,8 +12,7 @@ async=0
 for arg in "$@"; do
     if [ "$arg" = "-a" ]; then
         position=$i
-        let ++position
-        let ++position
+        let position+=2
     fi
     if [ "$arg" = "--async" ]; then
         async=$i
@@ -44,7 +43,8 @@ fi
 if [ "$i" -lt "2" ]; then
     echo "Usage: heroku_multi <command> -a app [app] [app...] [--async]"
     echo ""
-    echo "      Passing the --async flag will spawn a background shell"
-    echo "            for each app command, executing asynchronously"
+    echo "Flags:"
+    echo "--async       spawn a background shell for the command on each"
+    echo "              app, executing asynchronously"
     echo ""
 fi
