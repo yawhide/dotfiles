@@ -1,4 +1,4 @@
 #!/bin/sh
 #
 
-curl -L "$@" | python -m json.tool | ccat
+curl -L "$@" -s | python -m json.tool | ccat
