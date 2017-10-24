@@ -72,21 +72,31 @@ set complete+=kspell
 " linewrap in prose
 " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
+" :help ale-options
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+" let g:ale_linters = {}
+" let g:ale_linters['javascript'] = ['eslint']
+" let g:ale_linters['ruby'] = ['rubocop']
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['ruby'] = ['rubocop']
+
 " :help syntastic
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 " let g:syntastic_php_checkers = ["php"]
-let g:syntastic_css_checkers = ["csslint"]
-let g:syntastic_javascript_checkers = ["eslint"]
-let g:syntastic_ruby_checkers = ["rubocop"]
-let g:syntastic_aggregate_errors = 1
+" let g:syntastic_css_checkers = ["csslint"]
+" let g:syntastic_javascript_checkers = ["eslint"]
+" let g:syntastic_ruby_checkers = ["rubocop"]
+" let g:syntastic_aggregate_errors = 1
 " JSX/React syntax
-let g:jsx_ext_required = 0
+" let g:jsx_ext_required = 0
 
 " autocompletion
 set omnifunc=syntaxcomplete#Complete
