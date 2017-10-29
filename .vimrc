@@ -125,13 +125,6 @@ nmap <C-l> :call jsdoc#insert()<CR>
 " CompleteJS autocompletion
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
-" phpDoc
-inoremap <C-k> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-k> :call PhpDocSingle()<CR> 
-vnoremap <C-k> :call PhpDocRange()<CR> 
-" phpfmt
-let g:phpfmt_psr2 = 1
-
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
