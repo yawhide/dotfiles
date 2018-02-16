@@ -93,10 +93,10 @@ RED="\033[1;31m"
 BOLD=""
 RESET="\033[m"
 
-echo -n "Date : "
-date
 # brew install fortune, for fun :)
 # fortune
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 [[ -r ~/.profile ]] && . ~/.profile
+
+export PATH="$HOME/.cargo/bin:$PATH"
