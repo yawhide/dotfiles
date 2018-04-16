@@ -112,6 +112,8 @@ set wildmenu
 let g:netrw_banner=0        " disable annoying banner
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
+let g:netrw_browse_split=2  " open files in a new vertical split
+let g:netrw_winsize=25      " sets the width to 25% of the page.
 
 set foldmethod=manual
 set nofoldenable        " disable folding
