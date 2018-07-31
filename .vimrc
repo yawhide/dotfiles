@@ -27,8 +27,9 @@ nnoremap <S-Tab> :tabp<CR>
 
 " Special leader-based conveniences
 nnoremap <Leader>o :tabf 
+nnoremap <Leader>e :find 
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :wq<CR>
+nnoremap <Leader>q :q<CR>
 
 " for tablilne colors
 hi TabLineFill term=bold cterm=bold ctermbg=0
@@ -112,8 +113,8 @@ set wildmenu
 let g:netrw_banner=0        " disable annoying banner
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
-let g:netrw_browse_split=2  " open files in a new vertical split
-let g:netrw_winsize=25      " sets the width to 25% of the page.
+let g:netrw_winsize=75      " sets the width to 75% of the page.
+" let g:netrw_browse_split=2  " open files in a new vertical split
 
 set foldmethod=manual
 set nofoldenable        " disable folding
