@@ -98,5 +98,3 @@ RESET="\033[m"
 
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 [[ -r ~/.profile ]] && . ~/.profile
-
-export PATH="$HOME/.cargo/bin:$PATH"
