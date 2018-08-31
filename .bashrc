@@ -71,7 +71,7 @@ generate_readme() {
     cp ~/.dotfiles/commond-readme.md ./README.md
 }
 
-source ~/src/github.com/dickeyxxx/gh/bash/gh.bash
-source ~/src/github.com/dickeyxxx/gh/bash/gl.bash
-source ~/src/github.com/dickeyxxx/gh/completions/gh.bash
-source ~/src/github.com/dickeyxxx/gh/completions/gl.bash
+source ~/src/github.com/jdxcode/gh/bash/gh.bash
+source ~/src/github.com/jdxcode/gh/bash/gl.bash
+source ~/src/github.com/jdxcode/gh/completions/gh.bash
+source ~/src/github.com/jdxcode/gh/completions/gl.bash
