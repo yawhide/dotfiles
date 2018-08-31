@@ -11,7 +11,7 @@ parse_git_branch () {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-PS1="\[$WHITE\]at \[$ORANGE\]\A \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+PS1="\[$RESET\]\[$RED\]\A \[$RESET\]in \[$BLUE\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]\n\$ \[$RESET\]"
 
 # export PS1="\d \A \W\$ " 
 #       canonical -> "\h:\W \u\$ "
@@ -70,3 +70,8 @@ wake_me_in()
 generate_readme() {
     cp ~/.dotfiles/commond-readme.md ./README.md
 }
+
+source ~/src/github.com/jdxcode/gh/bash/gh.bash
+source ~/src/github.com/jdxcode/gh/bash/gl.bash
+source ~/src/github.com/jdxcode/gh/completions/gh.bash
+source ~/src/github.com/jdxcode/gh/completions/gl.bash

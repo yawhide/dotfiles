@@ -9,7 +9,8 @@ let mapleader = "\<Space>"
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-set background=dark
+" set background=dark
+set background=light
 
 highlight clear SignColumn
 set autowrite
@@ -18,7 +19,7 @@ set incsearch
 set hlsearch
 " set textwidth=80
 " set colorcolumn=+1
-highlight OverLength ctermbg=black guibg=#592929
+highlight OverLength ctermbg=white guibg=#592929
 
 " Use tab and shift-tab to cycle through tabs
 nnoremap <Tab> :tabn<CR>
@@ -26,8 +27,9 @@ nnoremap <S-Tab> :tabp<CR>
 
 " Special leader-based conveniences
 nnoremap <Leader>o :tabf 
+nnoremap <Leader>e :find 
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :wq<CR>
+nnoremap <Leader>q :q<CR>
 
 " for tablilne colors
 hi TabLineFill term=bold cterm=bold ctermbg=0
@@ -69,7 +71,17 @@ autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd FileType gitcommit setlocal spell
 set complete+=kspell
 " linewrap in prose
-"autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+" autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
+" :help ale-options
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+" let g:ale_linters = {}
+" let g:ale_linters['javascript'] = ['eslint']
+" let g:ale_linters['ruby'] = ['rubocop']
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['ruby'] = ['rubocop']
 
 " :help ale-options
 let g:ale_lint_on_enter = 1
@@ -111,6 +123,8 @@ set wildmenu
 let g:netrw_banner=0        " disable annoying banner
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
+let g:netrw_winsize=75      " sets the width to 75% of the page.
+" let g:netrw_browse_split=2  " open files in a new vertical split
 
 set foldmethod=manual
 set nofoldenable        " disable folding
@@ -122,7 +136,8 @@ autocmd FileType ruby set tabstop=8 shiftwidth=2
 autocmd FileType php match OverLength /\%121v.\+/
 autocmd FileType ruby match OverLength /\%81v.\+/
 autocmd FileType ruby set tabstop=8 shiftwidth=2
-
+autocmd FileType css set tabstop=8 shiftwidth=2
+au BufRead,BufNewFile *.html.arb set filetype=ruby
 au BufRead,BufNewFile *.go set filetype=go 
 au BufRead,BufNewFile *.handler set filetype=javascript 
 
