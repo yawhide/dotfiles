@@ -33,6 +33,9 @@ nnoremap <Leader>cp :cprevious<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 
+" Custom commands
+command! -complete=shellcmd -nargs=+ Sh new | 0read ! "<args>"
+
 " for tablilne colors
 hi TabLineFill term=bold cterm=bold ctermbg=0
 
