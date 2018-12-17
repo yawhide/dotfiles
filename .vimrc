@@ -32,6 +32,7 @@ nnoremap <Leader>cn :cnext<CR>
 nnoremap <Leader>cp :cprevious<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>ld :LspDefinition<CR>
 
 " Custom commands
 command! -complete=shellcmd -nargs=+ Sh new | 0read ! "<args>"
