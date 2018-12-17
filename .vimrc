@@ -39,6 +39,10 @@ command! -complete=shellcmd -nargs=+ Sh new | 0read ! "<args>"
 " for tablilne colors
 hi TabLineFill term=bold cterm=bold ctermbg=0
 
+" For LimeLight config
+let g:limelight_conceal_ctermfg = 'white'
+let g:limelight_conceal_ctermfg = 240
+
 " for custom statusline
 " https://github.com/airblade/dotvim/blob/dd5d7737e39aad5e24c1a4a8c0d115ff2ae7b488/vimrc#L49-L91
 hi clear StatusLine
@@ -97,6 +101,25 @@ let g:ale_lint_on_save = 1
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fixers['ruby'] = ['rubocop']
+
+" configuration for vim-lsp
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
+if executable('flow')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'flow',
+        \ 'cmd': {server_info->['flow', 'lsp']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+        \ 'whitelist': ['javascript', 'javascript.jsx'],
+        \ })
+endif
 
 " :help syntastic
 " set statusline+=%#warningmsg#
