@@ -11,7 +11,7 @@ parse_git_branch () {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-PS1="\[$RESET\]\[$RED\]\A \[$RESET\]in \[$BLUE\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]\n\$ \[$RESET\]"
+PS1="\[$RESET\]\[$RED\]\D{%F}T\A \[$RESET\]in \[$BLUE\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]\n\$ \[$RESET\]"
 
 # export PS1="\d \A \W\$ " 
 #       canonical -> "\h:\W \u\$ "
