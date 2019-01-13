@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Alert me with a push notification (via IFTTT)
+#
+# Usage:
+#       pushme "title" ["second part" "third part"]
+#
+event_name="push"
+api_key=$IFTTT_WEBHOOK_KEY
+
+curl --silent --show-error -X POST -H "Content-Type: application/json" \
+    --data '{"value1": "'"$1"'", "value2": "'"$2"'", "value3": "'"$3"'"}' \
+    https://maker.ifttt.com/trigger/$event_name/with/key/$api_key
