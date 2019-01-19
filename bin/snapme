@@ -11,5 +11,6 @@ cd /tmp
 /usr/sbin/screencapture -x screensnap.png
 imagesnap -w 2 camerasnap.png
 filename=$(date +%Y-%m-%d___%H.%M.%S.png)
+/usr/local/bin/convert screensnap.png -resize $(/usr/local/bin/convert camerasnap.png  -format "%wx%h" info:) screensnap.png
 /usr/local/bin/convert +append camerasnap.png screensnap.png $filename
 mv $filename ~/Library/Mobile\ Documents/com~apple~CloudDocs/$filename
