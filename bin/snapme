@@ -3,15 +3,16 @@
 # Capture a screenshot and an imagesnap via webcam and save to iCloud directory
 # Best combined with a cron job
 #       Requires: imagesnap (brew installable)
+#       Requires: convert (via imagemagick)
 #
 # Usage:
 #       snapme
 #
 cd /tmp
 /usr/sbin/screencapture -x screensnap.png
-imagesnap -w 2 camerasnap.png
+/usr/local/bin/imagesnap -w 2 -q camerasnap.png
 filename=$(date +%Y-%m-%d___%H.%M.%S.png)
 /usr/local/bin/convert screensnap.png -resize $(/usr/local/bin/convert camerasnap.png  -format "%wx%h" info:) screensnap.png
-/usr/local/bin/convert +append camerasnap.png screensnap.png $filename
+/usr/local/bin/convert -append camerasnap.png screensnap.png $filename
 mv $filename ~/Library/Mobile\ Documents/com~apple~CloudDocs/$filename
 rm screensnap.png && rm camerasnap.png
