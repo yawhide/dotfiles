@@ -4,7 +4,7 @@ syntax enable
 syntax on
 filetype plugin indent on
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-imap ;; <Esc>
+imap kj <Esc>
 let mapleader = "\<Space>"
 
 " If using a dark background within the editing area and syntax highlighting
