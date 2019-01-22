@@ -4,15 +4,16 @@ syntax enable
 syntax on
 filetype plugin indent on
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-imap ii <Esc>
+imap ;; <Esc>
 let mapleader = "\<Space>"
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 " set background=dark
 set background=light
+set number
+set relativenumber
 
-highlight clear SignColumn
 set autowrite
 set autoindent
 set incsearch
@@ -48,6 +49,7 @@ let g:limelight_conceal_ctermfg = 240
 " https://github.com/airblade/dotvim/blob/dd5d7737e39aad5e24c1a4a8c0d115ff2ae7b488/vimrc#L49-L91
 hi clear StatusLine
 hi clear StatusLineNC
+hi clear SignColumn
 hi StatusLine   term=bold cterm=bold ctermfg=White
 hi StatusLineNC term=bold cterm=bold ctermfg=White
 hi User1                      ctermfg=4          guifg=#40ffff            " Identifier
