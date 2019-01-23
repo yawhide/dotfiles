@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Capture a screenshot and an imagesnap via webcam and save to iCloud directory hourly
+#       Requires: snapme
+#
+# Usage:
+#       snapmehourly
+#       (or add this script to your 'Open items at login' in System Preferences)
+#
+while true; do
+    snapme
+    sleep 3598
+done
