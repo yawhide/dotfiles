@@ -22,6 +22,10 @@ set hlsearch
 " set colorcolumn=+1
 highlight OverLength ctermbg=white guibg=#592929
 
+" Support for infinite undo!
+set undofile
+set undodir=~/.vim/undodir
+
 " Use tab and shift-tab to cycle through tabs
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
