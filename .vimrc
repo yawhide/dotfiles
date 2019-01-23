@@ -11,7 +11,7 @@ let mapleader = "\<Space>"
 " turn on this option as well
 " set background=dark
 set background=light
-set number
+set nonumber
 set relativenumber
 
 set autowrite
@@ -50,6 +50,7 @@ let g:limelight_conceal_ctermfg = 240
 hi clear StatusLine
 hi clear StatusLineNC
 hi clear SignColumn
+hi LineNr ctermfg=grey
 hi StatusLine   term=bold cterm=bold ctermfg=White
 hi StatusLineNC term=bold cterm=bold ctermfg=White
 hi User1                      ctermfg=4          guifg=#40ffff            " Identifier
