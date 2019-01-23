@@ -25,6 +25,10 @@ highlight OverLength ctermbg=white guibg=#592929
 " Support for infinite undo!
 set undofile
 set undodir=~/.vim/undodir
+" Delete undo records over 90 days old
+let s:undos = split(globpath(&undodir, '*'), "\n")
+call filter(s:undos, 'getftime(v:val) < localtime() - (60 * 60 * 24 * 90)')
+call map(s:undos, 'delete(v:val)')
 
 " Use tab and shift-tab to cycle through tabs
 nnoremap <Tab> :tabn<CR>
