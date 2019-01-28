@@ -37,6 +37,8 @@ nnoremap <S-Tab> :tabp<CR>
 " Special leader-based conveniences
 nnoremap <Leader>o :tabf 
 nnoremap <Leader>e :find 
+nnoremap <Leader>v :vert sf 
+nnoremap <Leader>h :sf 
 nnoremap <Leader>cn :cnext<CR>
 nnoremap <Leader>cp :cprevious<CR>
 nnoremap <Leader>w :w<CR>
