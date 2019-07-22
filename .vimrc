@@ -10,7 +10,7 @@ let mapleader = "\<Space>"
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 " set background=dark
-set background=light
+set background=dark
 set nonumber
 set relativenumber
 
