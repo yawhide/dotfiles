@@ -14,5 +14,5 @@ cd /tmp
 filename=$(date +%Y-%m-%d___%H.%M.%S.png)
 /usr/local/bin/convert screensnap.png -resize $(/usr/local/bin/convert camerasnap.png  -format "%wx%h" info:) screensnap.png
 /usr/local/bin/convert -append camerasnap.png screensnap.png $filename
-mv $filename ~/Library/Mobile\ Documents/com~apple~CloudDocs/$filename
+mv $filename ~/Documents/snapme/$filename
 rm screensnap.png && rm camerasnap.png
