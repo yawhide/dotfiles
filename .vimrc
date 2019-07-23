@@ -13,7 +13,7 @@ let mapleader = "\<Space>"
 set background=light
 set nonumber
 set relativenumber
-
+set backspace=indent,eol,start  " more powerful backspacing
 set autowrite
 set autoindent
 set incsearch
