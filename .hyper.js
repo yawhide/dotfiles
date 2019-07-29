@@ -27,7 +27,7 @@ module.exports = {
     foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: '#222',
+    backgroundColor: '#323232',
 
     // border color (window, tabs)
     borderColor: '#444',
@@ -115,7 +115,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-    plugins: ["hyper-search", "hypercwd", "hyper-pane"],
+    plugins: ["hyper-search", "hypercwd", "hyper-pane", "hyper-tabs-enhanced"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
