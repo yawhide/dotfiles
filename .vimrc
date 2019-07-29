@@ -99,19 +99,9 @@ set complete+=kspell
 " :help ale-options
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
-" let g:ale_linters = {}
-" let g:ale_linters['javascript'] = ['eslint']
-" let g:ale_linters['ruby'] = ['rubocop']
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fixers['ruby'] = ['rubocop']
-
-" :help ale-options
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-" let g:ale_linters = {}
-" let g:ale_linters['javascript'] = ['eslint']
-" let g:ale_linters['ruby'] = ['rubocop']
+let g:ale_linters = {}
+let g:ale_linters['javascript'] = ['eslint']
+let g:ale_linters['ruby'] = ['rubocop']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fixers['ruby'] = ['rubocop']
