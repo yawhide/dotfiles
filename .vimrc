@@ -18,6 +18,7 @@ set autowrite
 set autoindent
 set incsearch
 set hlsearch
+set complete-=i
 " set textwidth=80
 " set colorcolumn=+1
 highlight OverLength ctermbg=white guibg=#592929
