@@ -21,7 +21,7 @@ set hlsearch
 set complete-=i
 " set textwidth=80
 " set colorcolumn=+1
-highlight OverLength ctermbg=white guibg=#592929
+highlight OverLength ctermbg=blue guibg=#592929
 
 " Support for infinite undo!
 set undofile
