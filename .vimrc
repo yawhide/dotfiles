@@ -7,10 +7,7 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 imap kj <Esc>
 let mapleader = "\<Space>"
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-" set background=dark
-set background=dark
+set background=light
 set nonumber
 set relativenumber
 
