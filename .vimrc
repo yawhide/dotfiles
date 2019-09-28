@@ -7,10 +7,7 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 imap kj <Esc>
 let mapleader = "\<Space>"
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-" set background=dark
-set background=dark
+set background=light
 set nonumber
 set relativenumber
 set backspace=indent,eol,start  " more powerful backspacing
@@ -18,9 +15,10 @@ set autowrite
 set autoindent
 set incsearch
 set hlsearch
+set complete-=i
 " set textwidth=80
 " set colorcolumn=+1
-highlight OverLength ctermbg=white guibg=#592929
+highlight OverLength ctermbg=blue guibg=#592929
 
 " Support for infinite undo!
 set undofile
@@ -55,6 +53,7 @@ hi TabLineFill term=bold cterm=bold ctermbg=0
 let g:limelight_conceal_ctermfg = 'white'
 let g:limelight_conceal_ctermfg = 240
 
+hi Search cterm=NONE ctermfg=white
 " for custom statusline
 " https://github.com/airblade/dotvim/blob/dd5d7737e39aad5e24c1a4a8c0d115ff2ae7b488/vimrc#L49-L91
 hi clear StatusLine
@@ -99,19 +98,9 @@ set complete+=kspell
 " :help ale-options
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
-" let g:ale_linters = {}
-" let g:ale_linters['javascript'] = ['eslint']
-" let g:ale_linters['ruby'] = ['rubocop']
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fixers['ruby'] = ['rubocop']
-
-" :help ale-options
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-" let g:ale_linters = {}
-" let g:ale_linters['javascript'] = ['eslint']
-" let g:ale_linters['ruby'] = ['rubocop']
+let g:ale_linters = {}
+let g:ale_linters['javascript'] = ['eslint']
+let g:ale_linters['ruby'] = ['rubocop']
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fixers['ruby'] = ['rubocop']
