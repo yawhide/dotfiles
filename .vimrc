@@ -42,6 +42,7 @@ nnoremap <Leader>cp :cprevious<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>ld :LspDefinition<CR>
+nnoremap <Leader>g :grep -r --include='*.<C-R>=expand('%:e')<CR>' '<C-R><C-W>' ./<CR><CR>:cw<CR>
 
 " Custom commands
 command! -complete=shellcmd -nargs=+ Sh new | 0read ! "<args>"
