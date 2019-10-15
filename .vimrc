@@ -18,7 +18,7 @@ set hlsearch
 set complete-=i
 " set textwidth=80
 " set colorcolumn=+1
-highlight OverLength ctermbg=blue guibg=#592929
+highlight OverLength ctermbg=blue ctermfg=white
 
 " Support for infinite undo!
 set undofile
@@ -53,7 +53,6 @@ hi TabLineFill term=bold cterm=bold ctermbg=0
 let g:limelight_conceal_ctermfg = 'white'
 let g:limelight_conceal_ctermfg = 240
 
-hi Search cterm=NONE ctermfg=white
 " for custom statusline
 " https://github.com/airblade/dotvim/blob/dd5d7737e39aad5e24c1a4a8c0d115ff2ae7b488/vimrc#L49-L91
 hi clear StatusLine
