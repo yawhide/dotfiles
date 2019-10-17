@@ -182,6 +182,10 @@ nmap <C-l> :call jsdoc#insert()<CR>
 " CompleteJS autocompletion
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
+" Per default, netrw leaves unmodified buffers open. This autocommand
+" deletes netrw's buffer once it's hidden (using ':q', for example)
+autocmd FileType netrw setl bufhidden=delete
+
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
