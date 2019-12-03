@@ -196,3 +196,8 @@ au Syntax * RainbowParenthesesLoadBraces
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+function! RubocopAutocorrect()
+  execute "!rubocop -a " . bufname("%")
+endfunction
+map <silent> <Leader>cop :call RubocopAutocorrect()<cr>
