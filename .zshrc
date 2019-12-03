@@ -8,12 +8,17 @@ export ZSH="/Users/josh/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-SOLARIZED_THEME="dark"
+SOLARIZED_THEME="light"
 ZSH_THEME="spaceship"
 SPACESHIP_TIME_SHOW=true
-# SPACESHIP_TIME_COLOR=black
-# SPACESHIP_EXEC_TIME_COLOR=black
-# SPACESHIP_DIR_COLOR=black
+
+# solarized light colors
+SPACESHIP_TIME_COLOR=136
+SPACESHIP_EXEC_TIME_COLOR=136
+SPACESHIP_DIR_COLOR=37
+SPACESHIP_GIT_BRANCH_COLOR=125
+SPACESHIP_GIT_STATUS_COLOR=160
+
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
   user          # Username section
