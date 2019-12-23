@@ -199,5 +199,6 @@ endif
 
 function! RubocopAutocorrect()
   execute "!rubocop -a " . bufname("%")
+  :e
 endfunction
 map <silent> <Leader>cop :call RubocopAutocorrect()<cr>
