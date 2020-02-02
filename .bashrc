@@ -75,3 +75,6 @@ source ~/src/github.com/jdxcode/gh/bash/gh.bash
 source ~/src/github.com/jdxcode/gh/bash/gl.bash
 source ~/src/github.com/jdxcode/gh/completions/gh.bash
 source ~/src/github.com/jdxcode/gh/completions/gl.bash
+
+# heroku autocomplete setup
+HEROKU_AC_BASH_SETUP_PATH=/Users/josh/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
