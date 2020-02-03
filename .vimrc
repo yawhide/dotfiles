@@ -162,13 +162,13 @@ set foldmethod=manual
 set nofoldenable        " disable folding
 
 " Language specifics
+autocmd FileType css set tabstop=8 shiftwidth=2
 autocmd FileType javascript match OverLength /\%81v.\+/
-autocmd FileType ruby match OverLength /\%81v.\+/
-autocmd FileType ruby set tabstop=8 shiftwidth=2
 autocmd FileType php match OverLength /\%121v.\+/
 autocmd FileType ruby match OverLength /\%81v.\+/
 autocmd FileType ruby set tabstop=8 shiftwidth=2
-autocmd FileType css set tabstop=8 shiftwidth=2
+autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
+autocmd FileType ruby,eruby,yaml setlocal iskeyword+=!
 au BufRead,BufNewFile *.html.arb set filetype=ruby
 au BufRead,BufNewFile *.go set filetype=go 
 au BufRead,BufNewFile *.handler set filetype=javascript 
