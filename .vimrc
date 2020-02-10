@@ -35,14 +35,14 @@ nnoremap <S-Tab> :tabp<CR>
 " Special leader-based conveniences
 nnoremap <Leader>cn :cnext<CR>
 nnoremap <Leader>cp :cprevious<CR>
-nnoremap <Leader>e :find
+nnoremap <Leader>e :find 
 nnoremap <Leader>g :grep -r --include='*.<C-R>=expand('%:e')<CR>' '<C-R><C-W>' ./<CR><CR>:cw<CR>
-nnoremap <Leader>h :sf
+nnoremap <Leader>h :sf 
 nnoremap <Leader>ld :LspDefinition<CR>
-nnoremap <Leader>o :tabf
+nnoremap <Leader>o :tabf 
 nnoremap <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>"
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>v :vert sf
+nnoremap <Leader>v :vert sf 
 nnoremap <Leader>w :w<CR>
 
 " Custom commands
