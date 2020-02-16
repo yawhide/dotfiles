@@ -8,7 +8,7 @@ imap kj <Esc>
 let mapleader = "\<Space>"
 
 set background=light
-set nonumber
+set number
 set relativenumber
 set backspace=indent,eol,start  " more powerful backspacing
 set autowrite
@@ -33,16 +33,17 @@ nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
 
 " Special leader-based conveniences
-nnoremap <Leader>o :tabf 
-nnoremap <Leader>e :find 
-nnoremap <Leader>v :vert sf 
-nnoremap <Leader>h :sf 
 nnoremap <Leader>cn :cnext<CR>
 nnoremap <Leader>cp :cprevious<CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>ld :LspDefinition<CR>
+nnoremap <Leader>e :find 
 nnoremap <Leader>g :grep -r --include='*.<C-R>=expand('%:e')<CR>' '<C-R><C-W>' ./<CR><CR>:cw<CR>
+nnoremap <Leader>h :sf 
+nnoremap <Leader>ld :LspDefinition<CR>
+nnoremap <Leader>o :tabf 
+nnoremap <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>"
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>v :vert sf 
+nnoremap <Leader>w :w<CR>
 
 " Custom commands
 command! -complete=shellcmd -nargs=+ Sh new | 0read ! "<args>"
@@ -161,13 +162,13 @@ set foldmethod=manual
 set nofoldenable        " disable folding
 
 " Language specifics
+autocmd FileType css set tabstop=8 shiftwidth=2
 autocmd FileType javascript match OverLength /\%81v.\+/
-autocmd FileType ruby match OverLength /\%81v.\+/
-autocmd FileType ruby set tabstop=8 shiftwidth=2
 autocmd FileType php match OverLength /\%121v.\+/
 autocmd FileType ruby match OverLength /\%81v.\+/
 autocmd FileType ruby set tabstop=8 shiftwidth=2
-autocmd FileType css set tabstop=8 shiftwidth=2
+autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
+autocmd FileType ruby,eruby,yaml setlocal iskeyword+=!
 au BufRead,BufNewFile *.html.arb set filetype=ruby
 au BufRead,BufNewFile *.go set filetype=go 
 au BufRead,BufNewFile *.handler set filetype=javascript 
