@@ -202,4 +202,9 @@ function! RubocopAutocorrect()
   execute "!rubocop -a " . bufname("%")
   :e
 endfunction
+function! EslintAutocorrect()
+  execute "!eslint --fix " . bufname("%")
+  :e
+endfunction
 map <silent> <Leader>cop :call RubocopAutocorrect()<cr>
+map <silent> <Leader>eslint :call EslintAutocorrect()<cr>
