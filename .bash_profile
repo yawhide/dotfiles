@@ -13,12 +13,13 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATHexport PATH=/usr/local/bin:$PATH
+#export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+export PATH=/usr/local/bin:$PATH
 
 # Setting PATH for Python 2.7
 # The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+#PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+#export PATH
 
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin" 
