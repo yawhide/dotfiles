@@ -32,6 +32,10 @@ let s:undos = split(globpath(&undodir, '*'), "\n")
 call filter(s:undos, 'getftime(v:val) < localtime() - (60 * 60 * 24 * 90)')
 call map(s:undos, 'delete(v:val)')
 
+" auto-reload a file if it changes outside of vim
+set autoread
+" True color mode! (Requires a fancy modern terminal, but iTerm works.)
+" :set termguicolors
 " Use tab and shift-tab to cycle through tabs
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
