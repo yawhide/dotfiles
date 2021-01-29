@@ -151,14 +151,36 @@ export BROWSER=w3m
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias buildctags="~/dotfiles/.git-templates/hooks/ctags"
 
-compinit
+# kitty terminal emulator control commands
+function kt () {
+  kitty @ focus-tab --match title:$1
+}
+function ktt () {
+  kitty @ set-tab-title $@
+}
+function kw () {
+  kitty @ focus-window --match title:$1
+}
+function kwt () {
+  kitty @ set-window-title $@
+}
+
+# search files and open in vim as quickfix
+function rgv () {
+    vim -q <(rg --vimgrep $@) -c :cwindow
+}
+
+# compinit
 # bash completion and gh
-autoload bashcompinit
-bashcompinit
-source ~/src/github.com/jdxcode/gh/bash/gh.bash
-source ~/src/github.com/jdxcode/gh/completions/gh.bash
-source ~/src/github.com/jdxcode/gh/bash/gl.bash
-source ~/src/github.com/jdxcode/gh/completions/gl.bash
+# autoload bashcompinit
+# bashcompinit
+# source ~/src/github.com/jdxcode/gh/bash/gh.bash
+# source ~/src/github.com/jdxcode/gh/completions/gh.bash
+# source ~/src/github.com/jdxcode/gh/bash/gl.bash
+# source ~/src/github.com/jdxcode/gh/completions/gl.bash
 
 . $HOME/.shellrc.load
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
