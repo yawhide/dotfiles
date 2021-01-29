@@ -36,6 +36,14 @@ call map(s:undos, 'delete(v:val)')
 set autoread
 " True color mode! (Requires a fancy modern terminal, but iTerm works.)
 " :set termguicolors
+
+" configure fuzzy-finder
+set rtp+=/usr/local/opt/fzf
+
+" configure ripgrep for faster grepping
+set grepprg=rg\ --vimgrep
+set grepformat^=%f:%l:%c:%m
+
 " Use tab and shift-tab to cycle through tabs
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
@@ -48,6 +56,7 @@ nnoremap <Leader>g :grep -r --include='*.<C-R>=expand('%:e')<CR>' '<C-R><C-W>' .
 nnoremap <Leader>h :sf 
 nnoremap <Leader>ld :LspDefinition<CR>
 nnoremap <Leader>o :tabf 
+nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>"
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>v :vert sf 
