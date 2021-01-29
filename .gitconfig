@@ -3,43 +3,46 @@
 	email = email@andjosh.com
 [core]
 	editor = vim
+	commitGraph = true
 [credential]
-	helper = cache
+	helper = 
+	helper = store --file /opt/dev/var/private/git_credential_store
 [alias]
-    co = checkout
-    st = status
-    s = status -sb
-    ci = commit -a --verbose
-    cm = commit -am
+    ada = add -A
+    add = add -v
+    ali = config --get-regexp alias
+    br = branch
+    browse = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)
+    browseissues = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/issues
+    browselines = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pipelines
+    browsemerges = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/merge_requests
+    browsepulls = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pulls
+    brs = show-branch --sha1-name
     ca = commit --amend
     cac = commit --amend -c
-    rev = merge --no-ff --no-commit
-    br = branch
     cb = symbolic-ref --short HEAD      # get current branch name, simply
-    brs = show-branch --sha1-name
-    ls = ls-files
-    add = add -v
+    ci = commit -a --verbose
+    cm = commit -am
+    co = checkout
+    fc = log --all --grep
+    fix = "!f() { vim -p `git diff --name-only`; }; f" # via https://gist.github.com/jacobvosmaer/3187346
+    fup = push --set-upstream origin HEAD
     get = fetch --all
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    ls = ls-files
     lsv = log --pretty=format:'%C(yellow)%h %C(cyan)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
     lu = for-each-ref --sort=-committerdate --format='%(committerdate:relative)%09%(refname:short)' refs/heads
+    prose = log --pretty=format:%s
+    pu = pull origin 
+    rearrange = "!git rebase -i $(git merge-base HEAD @{u})"
+    rev = merge --no-ff --no-commit
+    s = status -sb
+    st = status
     tree = log --all --graph --decorate --oneline
     up = push origin 
     uptags = !git push origin && git push origin --tags
-    fup = push --set-upstream origin HEAD
-    pu = pull origin 
-    ada = add -A
     web = instaweb
-    fc = log --all --grep
-    prose = log --pretty=format:%s
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-    ali = config --get-regexp alias
-    browse = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)
-    browseissues = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/issues
-    browsepulls = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pulls
-    browsemerges = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/merge_requests
-    browselines = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pipelines
-    rearrange = "!git rebase -i $(git merge-base HEAD @{u})"
 [init]
 	templatedir = ~/.git-templates
 [github]
@@ -48,6 +51,8 @@
 	token = !security find-internet-password -a andjosh -s github.com -l 'ghi token' -w
 [push]
 	default = simple
+[pull]
+        rebase = false
 [rerere]
 	enabled = true
 [gitlab]
