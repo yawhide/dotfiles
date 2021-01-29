@@ -172,6 +172,7 @@ set path=.,,**
 
 " Display all matching files when we tab complete
 set wildmenu
+set wildmode=longest,list
 
 " FILE BROWSING:
 " Tweaks for browsing:
@@ -186,9 +187,9 @@ set nofoldenable        " disable folding
 
 " Language specifics
 autocmd FileType css set tabstop=8 shiftwidth=2
-autocmd FileType javascript match OverLength /\%81v.\+/
+autocmd FileType javascript match OverLength /\%121v.\+/
 autocmd FileType php match OverLength /\%121v.\+/
-autocmd FileType ruby match OverLength /\%81v.\+/
+autocmd FileType ruby match OverLength /\%121v.\+/
 autocmd FileType ruby set tabstop=8 shiftwidth=2
 autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 autocmd FileType ruby,eruby,yaml setlocal iskeyword+=!
