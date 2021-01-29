@@ -61,6 +61,12 @@ nnoremap <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>"
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>v :vert sf 
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>nn :set nonumber norelativenumber<CR>
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " Custom commands
 command! -complete=shellcmd -nargs=+ Sh new | 0read ! "<args>"
