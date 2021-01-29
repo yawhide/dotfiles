@@ -15,7 +15,11 @@ set autowrite
 set autoindent
 set incsearch
 set hlsearch
+set ignorecase smartcase
+hi Search ctermbg=LightYellow
+" hi Search ctermfg=Red
 set complete-=i
+set clipboard=unnamed
 " set textwidth=80
 " set colorcolumn=+1
 highlight OverLength ctermbg=blue ctermfg=white
