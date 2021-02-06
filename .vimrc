@@ -7,7 +7,21 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 imap kj <Esc>
 let mapleader = "\<Space>"
 
-set background=light
+"""""""    themes and schemes
+" to set up solarized light theme
+" (my old reliable workhorse)
+" set background=light
+" colorscheme solarized
+"
+" to set up nord (dark) theme
+" (my favorite for dark rooms and winter months)
+colorscheme nord
+
+" to set up papercolor light theme
+" (my favorite for bright rooms and summer months)
+" set background=light
+" colorscheme PaperColor
+
 set number
 set relativenumber
 set backspace=indent,eol,start  " more powerful backspacing

@@ -2,29 +2,29 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/josh/.oh-my-zsh"
+export ZSH="/Users/joshbeckman/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-SOLARIZED_THEME="light"
+# SOLARIZED_THEME="light"
 ZSH_THEME="spaceship"
 SPACESHIP_TIME_SHOW=true
 
 # solarized light colors
-SPACESHIP_TIME_COLOR=136
-SPACESHIP_EXEC_TIME_COLOR=136
-SPACESHIP_USER_COLOR=136
-SPACESHIP_DIR_COLOR=37
-SPACESHIP_GOLANG_COLOR=37
-SPACESHIP_DOCKER_COLOR=37
-SPACESHIP_GIT_BRANCH_COLOR=125
-SPACESHIP_ELIXIR_COLOR=125
-SPACESHIP_GIT_STATUS_COLOR=160
-SPACESHIP_USER_COLOR_ROOT=160
-SPACESHIP_PACKAGE_COLOR=160
-SPACESHIP_RUBY_COLOR=160
+# SPACESHIP_TIME_COLOR=136
+# SPACESHIP_EXEC_TIME_COLOR=136
+# SPACESHIP_USER_COLOR=136
+# SPACESHIP_DIR_COLOR=37
+# SPACESHIP_GOLANG_COLOR=37
+# SPACESHIP_DOCKER_COLOR=37
+# SPACESHIP_GIT_BRANCH_COLOR=125
+# SPACESHIP_ELIXIR_COLOR=125
+# SPACESHIP_GIT_STATUS_COLOR=160
+# SPACESHIP_USER_COLOR_ROOT=160
+# SPACESHIP_PACKAGE_COLOR=160
+# SPACESHIP_RUBY_COLOR=160
 
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
