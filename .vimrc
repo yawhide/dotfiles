@@ -76,6 +76,8 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>v :vert sf 
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>nn :set nonumber norelativenumber<CR>
+" Pre-populate a split command with the current directory
+nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -262,3 +264,7 @@ set tags=.git/tags,tags;$HOME
 " endfunction
 " inoremap <expr> <tab> InsertTabWrapper()
 " inoremap <s-tab> <c-n>
+
+" include matching macros for languages e.g. Ruby
+" (So you can select inside a method with `vim`)
+runtime macros/matchit.vim
