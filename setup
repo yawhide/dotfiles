@@ -50,5 +50,6 @@ echo '  ======  installed spin-specific things'
 fi
 
 echo '  ======  sourcing .zshrc'
+sudo chsh -s /usr/bin/zsh
 source ~/.zshrc
 echo '  ======  sourced .zshrc'
