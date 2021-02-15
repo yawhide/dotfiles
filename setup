@@ -5,8 +5,9 @@ echo '  ======  installed oh-my-zsh'
 
 # install spaceship zsh prompt
 echo '  ======  installing spaceship zsh prompt'
-sudo git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH/custom/themes/spaceship-prompt" --depth=1
-sudo ln -s "$ZSH/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH/custom/themes/spaceship.zsh-theme"
+mkdir -p ~/.oh-my-zsh/custom/themes
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH/custom/themes/spaceship-prompt" --depth=1
+ln -s "$ZSH/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH/custom/themes/spaceship.zsh-theme"
 echo '  ======  installed spaceship zsh prompt'
 
 # install tmux helpers
