@@ -48,8 +48,3 @@ echo '  ======  installing spin-specific things'
   git config --global user.email "josh.beckman@shopify.com"
 echo '  ======  installed spin-specific things'
 fi
-
-echo '  ======  sourcing .zshrc'
-sudo chsh -s /usr/bin/zsh
-source ~/.zshrc
-echo '  ======  sourced .zshrc'
