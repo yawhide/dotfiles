@@ -15,12 +15,12 @@ let mapleader = "\<Space>"
 "
 " to set up nord (dark) theme
 " (my favorite for dark rooms and winter months)
-colorscheme nord
+" colorscheme nord
 
 " to set up papercolor light theme
 " (my favorite for bright rooms and summer months)
-" set background=light
-" colorscheme PaperColor
+set background=light
+colorscheme PaperColor
 
 set number
 set relativenumber
@@ -63,21 +63,21 @@ nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
 
 " Special leader-based conveniences
+nnoremap <Leader>b :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nnoremap <Leader>cn :cnext<CR>
 nnoremap <Leader>cp :cprevious<CR>
 nnoremap <Leader>e :find 
+nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>g :grep -r --include='*.<C-R>=expand('%:e')<CR>' '<C-R><C-W>' ./<CR><CR>:cw<CR>
 nnoremap <Leader>h :sf 
 nnoremap <Leader>ld :LspDefinition<CR>
+nnoremap <Leader>nn :set nonumber norelativenumber<CR>
 nnoremap <Leader>o :tabf 
-nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>"
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>t <C-w><C-]><C-w>T
 nnoremap <Leader>v :vert sf 
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>nn :set nonumber norelativenumber<CR>
-" Pre-populate a split command with the current directory
-nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -94,38 +94,43 @@ hi TabLineFill term=bold cterm=bold ctermbg=0
 let g:limelight_conceal_ctermfg = 'white'
 let g:limelight_conceal_ctermfg = 240
 
+" using airline themed statusline
+" git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+" git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
+let g:airline_theme='papercolor'
+
 " for custom statusline
 " https://github.com/airblade/dotvim/blob/dd5d7737e39aad5e24c1a4a8c0d115ff2ae7b488/vimrc#L49-L91
-hi clear StatusLine
-hi clear StatusLineNC
-hi clear SignColumn
-hi LineNr ctermfg=grey
-hi StatusLine   term=bold cterm=bold ctermfg=White
-hi StatusLineNC term=bold cterm=bold ctermfg=White
-hi User1                      ctermfg=4          guifg=#40ffff            " Identifier
-hi User2                      ctermfg=2 gui=bold guifg=#ffff60            " Statement
-hi User3 term=bold cterm=bold ctermfg=1          guifg=White   guibg=Red  " Error
-hi User4                      ctermfg=1          guifg=Orange             " Special
-hi User5                      ctermfg=10         guifg=#80a0ff            " Comment
-hi User6 term=bold cterm=bold ctermfg=1          guifg=Red                " WarningMsg
-set laststatus=2                                " always show statusline"
-set statusline=
-set statusline+=%6*%m%r%*                          " modified, readonly
-set statusline+=\ 
-set statusline+=%7*%{expand('%:h')}/               " relative path to file's directory
-set statusline+=%5*%t%*                            " file name
-set statusline+=\ 
-set statusline+=\ 
-set statusline+=%<                                 " truncate here if needed
-set statusline+=%5*%L\ lines%*                     " number of lines
-
-set statusline+=%=                                 " switch to RHS
-
-set statusline+=%5*line:%-4.l%*                         " line
-set statusline+=%5*col:%-3.c%*                          " column
-set statusline+=\ 
-set statusline+=\ 
-set statusline+=%1*buf:%-3n%*                      " buffer number
+" hi clear StatusLine
+" hi clear StatusLineNC
+" hi clear SignColumn
+" hi LineNr ctermfg=grey
+" hi StatusLine   term=bold cterm=bold ctermfg=White
+" hi StatusLineNC term=bold cterm=bold ctermfg=White
+" hi User1                      ctermfg=4          guifg=#40ffff            " Identifier
+" hi User2                      ctermfg=2 gui=bold guifg=#ffff60            " Statement
+" hi User3 term=bold cterm=bold ctermfg=1          guifg=White   guibg=Red  " Error
+" hi User4                      ctermfg=1          guifg=Orange             " Special
+" hi User5                      ctermfg=10         guifg=#80a0ff            " Comment
+" hi User6 term=bold cterm=bold ctermfg=1          guifg=Red                " WarningMsg
+" set laststatus=2                                " always show statusline"
+" set statusline=
+" set statusline+=%6*%m%r%*                          " modified, readonly
+" set statusline+=\ 
+" set statusline+=%7*%{expand('%:h')}/               " relative path to file's directory
+" set statusline+=%5*%t%*                            " file name
+" set statusline+=\ 
+" set statusline+=\ 
+" set statusline+=%<                                 " truncate here if needed
+" set statusline+=%5*%L\ lines%*                     " number of lines
+" 
+" set statusline+=%=                                 " switch to RHS
+" 
+" set statusline+=%5*line:%-4.l%*                         " line
+" set statusline+=%5*col:%-3.c%*                          " column
+" set statusline+=\ 
+" set statusline+=\ 
+" set statusline+=%1*buf:%-3n%*                      " buffer number
 
 " spellchecking in prose
 autocmd BufRead,BufNewFile *.md setlocal spell
@@ -268,3 +273,35 @@ set tags=.git/tags,tags;$HOME
 " include matching macros for languages e.g. Ruby
 " (So you can select inside a method with `vim`)
 runtime macros/matchit.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Control text popups, courtesy of https://github.com/EdwardGallant
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" open a popup with custom text at the cursor
+" (will close automatically when the cursor moves)
+fu! TextInPopupAtCursor( title, text, ft ) " text can be an array or string
+    " it would be nice to save the filepath as well for quick navigation if
+    " the buffer is too large... I cant get scrolling to work with popups,
+    " although scrolling works fine with splits and generally outside popups
+    let eg_popup_id = popup_atcursor(a:text, {'title': ' '.a:title.' ', 'padding': [1,1,1,1], 'pos':'topleft', 'border':[1,1,1,1], 'scrollbar': 1})
+    call setbufvar( winbufnr(eg_popup_id), '&filetype', a:ft)
+endfu
+
+" open a popup in the top right of the buffer, kind of like minimap
+fu! TopRightPopup( title, text, ft ) " text can be an array or string
+    let g:top_right_popup = popup_create(
+                \ a:text,
+                \ { 'title': ' '.a:title.' '
+                \ , 'padding': [1,1,1,1]
+                \ , 'line': 1
+                \ , 'col': &columns
+                \ , 'pos':'topright'
+                \ , 'border':[1,1,1,1]
+                \ , 'scrollbar': 1 })
+    call setbufvar( winbufnr(g:top_right_popup), '&filetype', a:ft)
+endfu
+fu! CloseTopRightPopup()
+    if exists('g:top_right_popup')
+        call popup_close( g:top_right_popup )
+    endif
+endfu
